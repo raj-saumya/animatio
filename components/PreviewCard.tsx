@@ -30,29 +30,29 @@ const PreviewCard: NextPage<IAnimeProps> = ({
   mal_id,
 }) => {
   return (
-    <div className="rounded-lg flex flex-col bg-white min-w-[240px] shadow-md overflow-hidden">
-      <div className="rounded-tl-lg rounded-tr-lg h-[140px] overflow-hidden">
-        <Image
-          src={images.jpg.large_image_url}
-          width="100%"
-          height="100%"
-          layout="responsive"
-          objectFit="cover"
-          alt="anime_image"
-        ></Image>
-      </div>
-      <div className="flex flex-col px-4 py-2">
-        <Link href={`/anime/${mal_id}`} passHref>
+    <Link href={`/anime/${mal_id}`} passHref>
+      <div className="rounded-lg flex flex-col bg-white min-w-[240px] shadow-md overflow-hidden">
+        <div className="rounded-tl-lg rounded-tr-lg h-[140px] overflow-hidden">
+          <Image
+            src={images.jpg.large_image_url}
+            width="100%"
+            height="100%"
+            layout="responsive"
+            objectFit="cover"
+            alt="anime_image"
+          ></Image>
+        </div>
+        <div className="flex flex-col px-4 py-2">
           <a className="underline underline-offset-4 text-lg font-bold font-monospace mb-2">
             {title}
           </a>
-        </Link>
-        <p className="text-sm font-monospace h-[100px] overflow-hidden text-ellipsis mb-2">
-          {synopsis}
-        </p>
+          <p className="text-sm font-monospace h-[100px] overflow-hidden text-ellipsis mb-2">
+            {synopsis}
+          </p>
+        </div>
+        <Genres genres={genres} />
       </div>
-      <Genres genres={genres} />
-    </div>
+    </Link>
   );
 };
 
